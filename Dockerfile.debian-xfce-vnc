@@ -7,7 +7,7 @@ ENV REFRESHED_AT=2024-08-28
 
 LABEL io.k8s.description="Headless VNC Container with Xfce window manager, firefox and chromium" \
       io.k8s.display-name="Headless VNC Container based on Debian" \
-      io.openshift.expose-services="6901:http,5901:xvnc" \
+      io.openshift.expose-services="16901:http,15901:xvnc" \
       io.openshift.tags="vnc, debian, xfce" \
       io.openshift.non-scalable=true
 
