@@ -12,11 +12,12 @@ LABEL io.k8s.description="Headless VNC Container with Xfce window manager, firef
       io.openshift.non-scalable=true
 
 ## Connection ports for controlling the UI:
-# VNC port:5901
-# noVNC webport, connect via http://IP:6901/?password=vncpassword
+# (theharumph) 2024-10-30: Changed VNC Ports for non-standard implementation to avoid conflicts with other containers.
+# VNC port:15901
+# noVNC webport, connect via http://IP:16901/?password=vncpassword
 ENV DISPLAY=:1 \
-    VNC_PORT=5901 \
-    NO_VNC_PORT=6901
+    VNC_PORT=15901 \
+    NO_VNC_PORT=16901
 EXPOSE $VNC_PORT $NO_VNC_PORT
 
 ### Envrionment config
