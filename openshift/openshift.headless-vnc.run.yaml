@@ -23,12 +23,12 @@ objects:
     ports:
     - name: http-port-tcp
       protocol: TCP
-      port: 6901
-      targetPort: 6901
+      port: 16901
+      targetPort: 16901
     - name: vnc-port-tcp
       protocol: TCP
-      port: 5901
-      targetPort: 5901
+      port: 15901
+      targetPort: 15901
     selector:
       deploymentConfig: ${APPLICATION_NAME}
 - apiVersion: v1
@@ -76,16 +76,16 @@ objects:
           image: ${IMAGE}
           imagePullPolicy: Always
           ports:
-          - containerPort: 5901
+          - containerPort: 15901
             name: vnc
             protocol: TCP
-          - containerPort: 6901
+          - containerPort: 16901
             name: http
             protocol: TCP
           livenessProbe:
             httpGet:
               path: /
-              port: 6901
+              port: 16901
               scheme: HTTP
             initialDelaySeconds: 10
             timeoutSeconds: 1
@@ -95,7 +95,7 @@ objects:
           readinessProbe:
             httpGet:
               path: /
-              port: 6901
+              port: 16901
               scheme: HTTP
             initialDelaySeconds: 10
             timeoutSeconds: 1
